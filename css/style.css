@@ -128,6 +128,17 @@ body {
   bottom: 0;
 }
 
+#cassette-tape {
+  position: absolute;
+  left: 90%;
+  bottom: 7%;
+  z-index: 9;
+  cursor: move;
+}
+.cassette-tape__img {
+  max-height: 250px;
+}
+
 .end__panel {
   color: antiquewhite;
   display: flex;
