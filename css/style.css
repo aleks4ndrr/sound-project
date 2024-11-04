@@ -31,7 +31,7 @@ textarea {
   --TEXTBOX-PADDING: 1.5rem;
 
   /* font */
-  --HEADING-FS: 5rem;
+  --HEADING-FS: 7rem;
   --TEXTBOX-FS: 1.5rem;
 }
 
@@ -57,17 +57,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  gap: 50px;
+  flex-direction: row;
   height: 100vh;
 }
 
 .title__h1 {
+  text-align: right;
   font-size: var(--HEADING-FS);
   color: antiquewhite;
 }
 
+.title__h5 {
+  position: absolute;
+  right: 30%;
+  top: 30px;
+  font-size: 1rem;
+  color: #8f8f8f3b;
+}
+
 .title__h4 {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: antiquewhite;
 }
 
@@ -106,6 +116,18 @@ body {
   width: 50px;
 }
 
+.main__panel {
+  position: relative;
+  height: 100vh;
+  /* background-color: orange; */
+}
+
+.cassette-player {
+  position: absolute;
+  max-height: 550px;
+  bottom: 0;
+}
+
 .end__panel {
   color: antiquewhite;
   display: flex;
@@ -113,4 +135,6 @@ body {
   align-items: center;
   font-size: 4rem;
   height: 100vh;
+
+  display: none;
 }
