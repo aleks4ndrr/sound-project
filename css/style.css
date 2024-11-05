@@ -70,7 +70,7 @@ body {
 
 .title__h5 {
   position: absolute;
-  right: 30%;
+  margin: 0 auto 0 10%;
   top: 30px;
   font-size: 1rem;
   color: #8f8f8f3b;
@@ -118,24 +118,37 @@ body {
 
 .invert-circle1 {
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 800px;
   border-radius: 50%;
-  right: 20%;
-  top: 40%;
+  /* right: clamp(0, 10%, 30px); */
+  right: 0;
+  top: calc(50% - 500px);
   z-index: 100;
-  background-color: white;
+  background-color: rgba(243, 235, 152, 0.355);
   mix-blend-mode: exclusion;
 }
+
 .invert-circle2 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  left: 5%;
+  top: 30%;
+  z-index: 100;
+  background-color: rgba(191, 120, 120, 0.423);
+  mix-blend-mode: exclusion;
+}
+
+.invert-phone {
   position: absolute;
   width: 300px;
   height: 300px;
-  border-radius: 50%;
-  left: 20%;
-  top: 20%;
+  transform: rotate(-30deg);
+  left: 12%;
+  bottom: 10%;
   z-index: 100;
-  background-color: white;
   mix-blend-mode: exclusion;
 }
 
