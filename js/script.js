@@ -1,78 +1,90 @@
-//initialize AOS when document loaded
-AOS.init();
+document.addEventListener('DOMContentLoaded', () => {
+  AOS.init();
 
-// Make the DIV element draggable:
-dragElement(document.getElementById("cassette-tape"));
+  const arrow = document.getElementById('arrow');
+  const mainPanel = document.getElementById('main__panel');
+  const draggableImage = document.getElementById("cassette-tape");
+  const dropZone = document.getElementById('dropZone');
+  const closedPlayer = document.getElementById('closed_cassette_player');
+  const audioPlayer = document.getElementById('audioPlayer');
+  const playButton = document.getElementById('playButton');
+  const pauseButton = document.getElementById('pauseButton');
+  const stopButton = document.getElementById('stopButton');
+  let isDragging = false;
 
-function dragElement(elmnt) {
-  var pos1 = 0,
-    pos2 = 0,
-    pos3 = 0,
-    pos4 = 0;
+  arrow.addEventListener('click', () => {
+    mainPanel.scrollIntoView({behavior: "smooth" });
+  })
 
-  // move the DIV from anywhere inside the DIV:
-  elmnt.onmousedown = dragMouseDown;
+  // Play button
+  playButton.addEventListener('click', () => {  
+    audioPlayer.play();
+  });
 
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
+  // Pause button
+  pauseButton.addEventListener('click', () => {  
+    audioPlayer.pause();
+  });
 
-  // function elementDrag(e) {
-  //   e = e || window.event;
-  //   e.preventDefault();
-  //   // calculate the new cursor position:
-  //   pos1 = pos3 - e.clientX;
-  //   pos2 = pos4 - e.clientY;
-  //   pos3 = e.clientX;
-  //   pos4 = e.clientY;
-  //   // set the element's new position:
-  //   elmnt.style.top = elmnt.offsetTop - pos2 + "px";
-  //   elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
-  // }
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
+  // Stop button - pauses and resets the audio to the beginning
+  stopButton.addEventListener('click', () => {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0; // Reset to start
+  });
 
-    // Set the new position, ensuring it's within viewport boundaries
-    var newTop = elmnt.offsetTop - pos2;
-    var newLeft = elmnt.offsetLeft - pos1;
 
-    // Get viewport dimensions
-    var viewportWidth = window.innerWidth;
-    var viewportHeight = window.innerHeight;
+  // Start dragging - track the initial offset
+  draggableImage.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      // Get initial mouse and element positions
+      const offsetX = e.offsetX;
+      const offsetY = e.offsetY;
 
-    // Get element dimensions
-    var elmntWidth = elmnt.offsetWidth;
-    var elmntHeight = elmnt.offsetHeight;
+      // Set styles to enable dragging
+      draggableImage.style.position = 'absolute';
+      draggableImage.style.pointerEvents = 'none'; // Prevents image from blocking mousemove events
 
-    // Boundary checks
-    if (newLeft < 0) newLeft = 0;
-    if (newTop < 0) newTop = 0;
-    if (newLeft + elmntWidth > viewportWidth)
-      newLeft = viewportWidth - elmntWidth;
-    if (newTop + elmntHeight > viewportHeight)
-      newTop = viewportHeight - elmntHeight;
+      function onMouseMove(event) {
+          if (isDragging) {
+              // Calculate the new position
+              const x = event.clientX - offsetX;
+              const y = event.clientY - offsetY;
 
-    // Set the element's new position:
-    elmnt.style.top = newTop + "px";
-    elmnt.style.left = newLeft + "px";
-  }
+              // Move the image
+              draggableImage.style.left = `${x}px`;
+              draggableImage.style.top = `${y}px`;
+          }
+      }
 
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
+      // Stop dragging and check if it's in the drop zone
+      function onMouseUp(event) {
+          isDragging = false;
+          draggableImage.style.pointerEvents = 'auto'; // Re-enable pointer events
+
+          // Check if the mouse is over the drop zone
+          const dropZoneRect = dropZone.getBoundingClientRect();
+          const imageRect = draggableImage.getBoundingClientRect();
+
+          if (
+              imageRect.left < dropZoneRect.right &&
+              imageRect.right > dropZoneRect.left &&
+              imageRect.top < dropZoneRect.bottom &&
+              imageRect.bottom > dropZoneRect.top
+          ) {
+              draggableImage.style.display = 'none';
+              closedPlayer.style.display='flex';
+              playButton.style.display='flex';
+              pauseButton.style.display='flex';
+              stopButton.style.display='flex';
+          }
+
+          // Clean up event listeners
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', onMouseUp);
+      }
+
+      // Attach mousemove and mouseup listeners to the document
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+  });
+});

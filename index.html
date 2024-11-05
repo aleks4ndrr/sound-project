@@ -46,11 +46,27 @@
     </div>
 
     <!-- MAIN SCREEN -->
-    <div class="main__panel">
+    <div class="main__panel" id="main__panel">
+            <!-- Audio Player -->
+      <audio id="audioPlayer" src="assets/sounds/interview.mp3"></audio>
+
+      <!-- Audio Control Buttons -->
+      <div class="audio-controls">
+          <button id="playButton"></button>
+          <button id="pauseButton"></button>
+          <button id="stopButton"></button>
+      </div>
+
       <img
         src="assets/img/player_open.png"
         alt="open cassette player"
         class="cassette-player"
+      />
+      <img
+        src="assets/img/player_closed.png"
+        alt="closed cassette player"
+        class="cassette-player"
+        id="closed_cassette_player"
       />
       <div id="cassette-tape">
         <img
@@ -59,7 +75,11 @@
           class="cassette-tape__img"
         />
       </div>
+      <div id="dropZone" class="drop-zone">
+      </div>    
     </div>
+
+
 
     <!-- FINAL SCREEN -->
     <div class="end__panel">

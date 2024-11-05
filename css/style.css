@@ -164,6 +164,10 @@ body {
   bottom: 0;
 }
 
+#closed_cassette_player {
+  display: none;
+}
+
 #cassette-tape {
   position: absolute;
   left: 70%;
@@ -185,3 +189,67 @@ body {
 
   display: none;
 }
+
+.drop-zone {
+  position: absolute;
+  top: 60%; 
+  left: 32%; 
+  transform: translate(-50%, -50%); 
+  width: 650px;
+  height: 470px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #4CAF50;
+}
+
+
+.drop-zone.dragover {
+  background-color: #e8f5e9;
+}
+
+
+.audio-controls {
+  display: flex;
+}
+
+#playButton {
+  display: none;
+  position: absolute;
+  top: 295px;
+  left: 460px;
+  width: 130px;
+  height: 40px;
+  z-index: 999;
+}
+
+#pauseButton {
+  display: none;
+  position: absolute;
+  top: 295px;
+  left: 320px;
+  width: 130px;
+  height: 40px;
+  z-index: 999;
+}
+
+#stopButton {
+  display: none;
+  position: absolute;
+  top: 295px;
+  left: 600px;
+  width: 120px;
+  height: 40px;
+  z-index: 999;
+}
+
+.audio-controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
