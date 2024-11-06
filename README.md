@@ -33,8 +33,8 @@ Originally, the audio spanned eight minutes, so we split the recording into dist
 
 ### Website Creation
 
-We began the website creation process by creating multiple wireframes and designs for how we wanted to structure the web page that would house our audio experience. We decided that we want the website to capture the essence of our audio, while having minimal distractions yet an interactive component. We decided that our audio would live on a virtual "old school" cassette, that the user would have to pick up and drag into the cassette player.
+We began the website creation process by creating multiple wireframes and designs for how we wanted to structure the web page that would house our audio experience. We decided that we want the website to capture the essence of our audio, while having minimal distractions yet an interactive component. We decided that our audio would live on a virtual "old school" cassette, that the user would have to pick up and drag into the cassette player. Additionally, keeping the style minimalistic, we added certain minimal design element and hand drew the images that we used.
 
 ## Reflection/Evaluation 🪩
 
-Ultimately, we believe that our website turned out just how we expected it.
+Ultimately, despite the challenges that we faced in this project, including the limited time frame for producion, we believe that our project turned out successful and we implemented everything that we wanted to. One main issue that we encountered was working with SVGs during the website production part of our process. Unlike regular image types, svg images (those containing paths that can be used as objects), are were confusing for us to work with and resulted in us spending countless hours attempting to figure out and make them work with our concept of a functioning cassette player on the website. Nonetheless, we managed to overcome these challenges and as with many other aspects of production, produce a functioning product considering our constraints.
