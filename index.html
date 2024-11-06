@@ -7,7 +7,6 @@
       name="authors"
       content="Sabrina Song, Khaleeqa Garrett, Haris Kocan, Oleksandr Anyshchenko"
     />
-    <!-- <link rel="icon" type="image/x-icon" href="" /> -->
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -47,21 +46,20 @@
 
     <!-- MAIN SCREEN -->
     <div class="main__panel" id="main__panel">
-      <!-- Audio Player -->
+            <!-- Audio Player -->
       <audio id="audioPlayer" src="assets/sounds/interview.mp3"></audio>
 
       <!-- Audio Control Buttons -->
       <div class="audio-controls">
-        <button id="playButton"></button>
-        <button id="pauseButton"></button>
-        <button id="stopButton"></button>
+          <button id="playButton"></button>
+          <button id="pauseButton"></button>
+          <button id="stopButton"></button>
       </div>
 
       <img
         src="assets/img/player_open.png"
         alt="open cassette player"
         class="cassette-player"
-        id="open_cassette_player"
       />
       <img
         src="assets/img/player_closed.png"
@@ -69,7 +67,21 @@
         class="cassette-player"
         id="closed_cassette_player"
       />
-      
+      <div id="cassette-tape">
+        <img
+          src="assets/img/cassette.png"
+          alt="cassette image"
+          class="cassette-tape__img"
+        />
+      </div>
+      <div id="endMessage" class="end-message">
+        Use ai responsibly, you never know what the future might be like!
+      </div>
+      <div id="dropZone" class="drop-zone">
+      </div>    
+    </div>
+
+
 
     <!-- FINAL SCREEN -->
     <div class="end__panel">
