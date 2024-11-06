@@ -66,6 +66,19 @@ body {
   text-align: right;
   font-size: var(--HEADING-FS);
   color: antiquewhite;
+  position: fixed; /* Make it follow the user */
+  top: 200px; /* Initial top position */
+  right: 10%; /* Adjust as needed */
+  transition: transform 0.5s ease, right 0.5s ease, font-size 0.5s ease;
+  z-index: 100;
+}
+
+/* Final style when on the second page */
+.title__h1--side {
+  top: -10%;
+  left: 80%; /* Move to the side */
+  transform: translateY(100px); /* Move down slightly */
+  font-size: 3rem; /* Adjust font size as needed */
 }
 
 .title__h5 {

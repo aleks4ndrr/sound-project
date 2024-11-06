@@ -1,20 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init();
 
+  const titleH1 = document.querySelector('.title__h1');
   const arrow = document.getElementById('arrow');
   const mainPanel = document.getElementById('main__panel');
   const draggableImage = document.getElementById("cassette-tape");
   const dropZone = document.getElementById('dropZone');
   const closedPlayer = document.getElementById('closed_cassette_player');
   const audioPlayer = document.getElementById('audioPlayer');
-  const playButton = document.getElementById('playButton');
-  const pauseButton = document.getElementById('pauseButton');
-  const stopButton = document.getElementById('stopButton');
+  const playButton = document.getElementById('play');
+  const pauseButton = document.getElementById('pause');
+  const stopButton = document.getElementById('stop');
   let isDragging = false;
 
   arrow.addEventListener('click', () => {
     mainPanel.scrollIntoView({behavior: "smooth" });
   })
+
+    // Listen to the scroll event
+  window.addEventListener('scroll', () => {
+    const mainPanelTop = mainPanel.getBoundingClientRect().top;
+    
+    // Check if the main panel is reached and apply the class
+    if (mainPanelTop <= 0) {
+      titleH1.classList.add('title__h1--side');
+    } else {
+      titleH1.classList.remove('title__h1--side');
+    }
+  });
 
   // Play button
   playButton.addEventListener('click', () => {  
