@@ -179,6 +179,8 @@ body {
 
 #closed_cassette_player {
   display: none;
+  transform: translate(-300px);
+  /* scale: 130%; */
 }
 
 #cassette-tape {
@@ -205,23 +207,21 @@ body {
 
 .drop-zone {
   position: absolute;
-  top: 60%; 
-  left: 32%; 
-  transform: translate(-50%, -50%); 
+  top: 60%;
+  left: 32%;
+  transform: translate(-50%, -50%);
   width: 650px;
   height: 470px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: #4CAF50;
+  color: #4caf50;
 }
-
 
 .drop-zone.dragover {
   background-color: #e8f5e9;
 }
-
 
 .audio-controls {
   display: flex;
@@ -265,4 +265,3 @@ body {
   border-radius: 5px;
   background-color: transparent;
 }
-
