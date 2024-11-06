@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   audioPlayer.addEventListener('ended', () => {
-    endMessage.style.display = 'flex';
+    endMessage.style.display = 'block'; 
   });
 
   // Start dragging - track the initial offset
